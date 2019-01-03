@@ -1,0 +1,64 @@
+#lab 12
+#indra ratna
+
+my_dict = {'a':15,'c':35,'b': 20};
+#problem 2
+def print_keys(s):
+    for key in s.keys():
+        print key
+def print_values(s):
+    for value in s.values():
+        print value
+def print_pairs(s):
+    for item in s.items():
+        print item
+def print_sorted_keys(s):
+    newList = s.items()
+    newList.sort()
+    for tuple in newList:
+        print tuple
+
+def print_sorted_values(s):
+    newList = s.items()
+    myList= []
+    for (key,value) in newList:
+       myList.append((value,key))
+    myList.sort()
+    for (value,key) in myList:
+        print (key,value)
+
+#problem 3
+def count_digits(val):
+    num = val
+    final = {}
+    while (num>0):
+        digit = num%10
+        num=num//10
+        if digit in final:
+            final[digit]+=1
+        else:
+            final[digit]=1
+    return final
+
+#problem 4
+def add_entry(contacts,name,number):
+    try:
+        if name not in contacts and len(str(number))==10 and type(number)==int:
+            contacts[name] = number
+    except ValueError:
+        print("Values are incorrect")
+
+def lookup(contacts,name):
+    print (name+"\t"+ str(contacts[name]))
+
+def print_all(contacts):
+    people = contacts.items()
+    for (name,number) in people:
+        print (name+"\t"+ str(contacts[name]))
+
+def add_from_file(filename):
+    f = open(filename,"r")
+    for line in f:
+        print line
+        
+    
